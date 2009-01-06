@@ -1,0 +1,9 @@
+input {
+  font-size: 24pt;
+  margin: 0.2ex;
+}
+pre.code {
+  border: 1px solid gray;
+  background-color: #EEE;
+  padding: 2ex;
+}

@@ -1,0 +1,45 @@
+<html>
+<head>
+<title>jQuery Default Input Demo</title>
+<script src="js/jquery.js"    type="text/javascript"></script>
+<script src="jquery_default_input.js" type="text/javascript"></script>
+<link rel="stylesheet" type="text/css" href="default_input.css" />
+</head>
+<body>
+
+<form onsubmit='alert("You tried to submit."); return false;' >
+<input id='user_name'     class='default'          type='text'/><br />
+<input id='user_password' class='default password' type='password'/><br />
+<input type='submit'/>
+</form>
+
+
+<pre class='code'>
+$(function() {
+	$('input.default').each( function() {
+		this.value = this.id;
+		this.type = 'text';
+	});
+	$('input.default').focus( function() {
+		if ( this.value == this.id ) {
+			this.value = "";
+		}
+		if ( $(this).hasClass('password') ) {
+			this.type = 'password';
+		} else {
+			this.type = 'text';
+		}
+	});
+	$('input.default').blur( function() {
+		if ( this.value == "" ) {
+			this.value = this.id;
+			this.type = 'text';
+		} else if ( $(this).hasClass('password') ) {
+			this.type = 'password';
+		}
+	});
+});
+</pre>
+
+</body>
+</html>
