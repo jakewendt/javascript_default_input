@@ -19,12 +19,13 @@ Event.observe(window, 'load', function() {
 	$$('input.default').each( 
 		function(myinput) {
 			myinput.value = myinput.id;
+			myinput.type = 'text';
 
 			Event.observe( myinput, 'blur', 
 				function(event){ 
 					if ( myinput.value == "" ) {
 						myinput.value = myinput.id;
-						if ( myinput.className.match( 'password' ) ) {
+						if ( myinput.hasClassName( 'password' ) ) {
 							myinput.type = 'text';
 						}
 					}
@@ -35,12 +36,13 @@ Event.observe(window, 'load', function() {
 				function(event){ 
 					if ( myinput.value == myinput.id ) {
 						myinput.value = "";
-						if ( myinput.className.match( 'password' ) ) {
+						if ( myinput.hasClassName( 'password' ) ) {
 							myinput.type = 'password';
 						}
 					}
 				}
 			);
+
 		}
 	);
 });
