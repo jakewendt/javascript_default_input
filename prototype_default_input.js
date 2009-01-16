@@ -10,16 +10,20 @@
 				Converts the field back to a "text" if empty.
 */
 
+function get_default_value(id){
+	return ( $(id+"_default") ) ? $(id+"_default").value : id;
+}
+
 Event.observe(window, 'load', function() {
 	$$('input.default').each( 
 		function(myinput) {
-			myinput.value = myinput.id;
+			myinput.value = get_default_value(myinput.id);
 			myinput.type = 'text';
 
 			Event.observe( myinput, 'blur', 
 				function(event){ 
 					if ( myinput.value == "" ) {
-						myinput.value = myinput.id;
+						myinput.value = get_default_value(myinput.id);
 						if ( myinput.hasClassName( 'password' ) ) {
 							myinput.type = 'text';
 						}
@@ -29,7 +33,7 @@ Event.observe(window, 'load', function() {
 
 			Event.observe( myinput, 'focus', 
 				function(event){ 
-					if ( myinput.value == myinput.id ) {
+					if ( myinput.value == get_default_value(myinput.id) ) {
 						myinput.value = "";
 						if ( myinput.hasClassName( 'password' ) ) {
 							myinput.type = 'password';
