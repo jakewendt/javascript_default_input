@@ -11,7 +11,7 @@
 */
 
 function get_default_value(id){
-	return ( $("#"+id+"_default") ) ? $("#"+id+"_default")[0].value : id;
+	return ( $("#"+id+"_default") ) ? $("#"+id+"_default").val() : id;
 }
 
 $(function() {
