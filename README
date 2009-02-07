@@ -5,6 +5,8 @@
 			class: default
 				To allow input text fields to be used without labels.
 				The field shows the "id" until the user has changed it.
+				(will use the value of the input tag with the same id followed 
+				by "_default" as its default over its id)
 			class: password
 				Converts the field to a "password" once the user has entered one.
 				Converts the field back to a "text" if empty.
