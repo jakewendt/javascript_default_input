@@ -1,13 +1,38 @@
+Javascript Default Input
+by Jake Wendt, 2007
 
-	who  : Jake
-	when : June 14, 2007
-	why  : 
-			class: default
-				To allow input text fields to be used without labels.
-				The field shows the "id" until the user has changed it.
-				(will use the value of the input tag with the same id followed 
-				by "_default" as its default over its id)
-			class: password
-				Converts the field to a "password" once the user has entered one.
-				Converts the field back to a "text" if empty.
+
+
+
+Demo
+====
+
+http://github.jakewendt.com/javascript_default_input/
+
+
+Usage
+=====
+
+
+Options
+=======
+
+class: default
+	To allow input text fields to be used without labels.
+	The field shows the "id" until the user has changed it.
+	(will use the value of the input tag with the same id followed 
+	by "_default" as its default over its id)
+class: password
+	Converts the field to a "password" once the user has entered one.
+	Converts the field back to a "text" if empty.
+
+
+Example
+=======
+
+<input id='user_name'     class='default'          type='text'/>
+<input id='user_name_default' type='hidden' value="Enter your user name" />
+
+<input id='user_password' class='default password' type='password'/>
+<input id='user_password_default' type='hidden' value="and password" />
 
