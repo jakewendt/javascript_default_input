@@ -11,20 +11,20 @@
 */
 
 function get_default_value(id){
-	return ( $("#"+id+"_default") ) ? $("#"+id+"_default").val() : id;
+	return ( $("#"+id+"_default").length > 0 ) ? $("#"+id+"_default").val() : id;
 }
 
 $(function() {
 	$('input.default').each( function() {
 		this.value = get_default_value(this.id);
-		this.type = 'text';
+		try { this.type = 'text'; } catch(e) { }
 	});
 
 	$('input.default').blur( function() {
 		if ( this.value == "" ) {
 			this.value = get_default_value(this.id);
 			if ( $(this).hasClass('password') ) {
-				this.type = 'text';
+				try { this.type = 'text'; } catch(e) { }
 			}
 		}
 	});
@@ -33,7 +33,7 @@ $(function() {
 		if ( this.value == get_default_value(this.id) ) {
 			this.value = "";
 			if ( $(this).hasClass('password') ) {
-				this.type = 'password';
+				try { this.type = 'password'; } catch(e) { }
 			}
 		}
 	});

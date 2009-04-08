@@ -18,14 +18,14 @@ Event.observe(window, 'load', function() {
 	$$('input.default').each( 
 		function(myinput) {
 			myinput.value = get_default_value(myinput.id);
-			myinput.type = 'text';
+			try { myinput.type = 'text'; } catch(e) { }
 
 			Event.observe( myinput, 'blur', 
 				function(event){ 
 					if ( myinput.value == "" ) {
 						myinput.value = get_default_value(myinput.id);
 						if ( myinput.hasClassName( 'password' ) ) {
-							myinput.type = 'text';
+							try { myinput.type = 'text'; } catch(e) { }
 						}
 					}
 				}
@@ -36,7 +36,7 @@ Event.observe(window, 'load', function() {
 					if ( myinput.value == get_default_value(myinput.id) ) {
 						myinput.value = "";
 						if ( myinput.hasClassName( 'password' ) ) {
-							myinput.type = 'password';
+							try { myinput.type = 'password'; } catch(e) { }
 						}
 					}
 				}

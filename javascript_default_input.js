@@ -19,7 +19,7 @@ function find_default_inputs() {
 			inputs[i].onfocus = default_input_focus
 			inputs[i].onblur  = default_input_blur
 			inputs[i].value = inputs[i].id
-			inputs[i].type  = 'text'
+			try { inputs[i].type  = 'text' } catch(e){}
 		}
 	}
 }
@@ -28,7 +28,7 @@ function default_input_blur() {
 	if ( this.value == "" ) {
 		this.value = this.id;
 		if ( this.className.match( 'password' ) ) {
-			this.type = 'text';
+			try { this.type = 'text'; } catch(e){}
 		}
 	}
 }
@@ -37,7 +37,7 @@ function default_input_focus() {
 	if ( this.value == this.id ) {
 		this.value = "";
 		if ( this.className.match( 'password' ) ) {
-			this.type = 'password';
+			try { this.type = 'password'; } catch(e){}
 		}
 	}
 }
